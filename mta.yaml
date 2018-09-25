@@ -1,0 +1,50 @@
+ID: ZHELLO_WORLD_MTA
+_schema-version: '3.1'
+description: Test of multi-target application in cloud foundry
+version: 0.0.1
+
+modules:
+ 
+ - name: tinyhdb
+   type: hdb
+   path: tinyhdb
+   requires:
+    - name: hdi_tinyhdb
+ 
+ - name: sapui5_router
+   type: html5
+   path: sapui5_router
+   parameters:
+      disk-quota: 256M
+      memory: 96M
+   requires:
+   - name: tiny_java_odata_v4_api
+     group: destinations
+     properties:
+      name: tiny_java_odata_v4_be
+      url: ~{url}
+      forwardAuthToken: true
+ 
+ - name: tiny_java_odata_v4
+   type: java
+   path: tiny_java_odata_v4
+   parameters:
+      memory: 256M
+   requires:
+    - name: hdi_tinyhdb
+      properties:
+         JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]' 
+   provides:
+    - name: tiny_java_odata_v4_api
+      properties:
+         url: "${default-url}"           
+        
+
+resources:
+ - name: hdi_tinyhdb
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ 

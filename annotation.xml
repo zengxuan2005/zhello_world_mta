@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Annotations Target="ZMY_TEST_SRV.ags_dsh_header" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+  <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+    <Collection>
+      <Record Type="com.sap.vocabularies.UI.v1.DataField">
+        <PropertyValue Property="Label" String="dsh_id" />
+        <PropertyValue Property="Value" Path="dsh_id" />
+        <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" />
+      </Record>
+      <Record Type="com.sap.vocabularies.UI.v1.DataField">
+        <PropertyValue Property="Label" String="created_by" />
+        <PropertyValue Property="Value" Path="created_by" />
+        <Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" />
+      </Record>
+    </Collection>
+  </Annotation>
+</Annotations>

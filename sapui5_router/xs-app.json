@@ -1,0 +1,12 @@
+{
+	"welcomeFile": "/sapui5_router/index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutEndpoint": "/do/logout"
+	},
+	"routes": [{
+		"source": "/odata/v2",
+		"authenticationType": "none",
+		"destination": "tiny_java_odata_v2_be"
+	}]
+}

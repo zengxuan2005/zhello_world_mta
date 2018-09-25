@@ -1,0 +1,10 @@
+---
+applications:
+  - name: tiny_java_odata_v4
+    memory: 512M
+    buildpack: sap_java_buildpack
+    path: target/tiny_java_odata_v4-0.0.1-SNAPSHOT.war  
+    services:
+    - hdi
+    env:
+      destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'

@@ -1,0 +1,14 @@
+{
+  "welcomeFile": "/tinyui5/test/flpSandbox.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/tinyui5/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}

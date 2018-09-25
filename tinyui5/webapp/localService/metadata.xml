@@ -1,0 +1,15 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZMY_TEST_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="ags_dsh_header" sap:content-version="1">
+				<Key><PropertyRef Name="dsh_id"/></Key><Property Name="dsh_id" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Object ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="created_by" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZMY_TEST_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="myset" EntityType="ZMY_TEST_SRV.ags_dsh_header" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:requires-filter="true" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="http://ldcifa7.wdf.sap.corp:50000/sap/opu/odata/SAP/ZMY_TEST_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="http://ldcifa7.wdf.sap.corp:50000/sap/opu/odata/SAP/ZMY_TEST_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
