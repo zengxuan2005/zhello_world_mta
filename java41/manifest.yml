@@ -1,0 +1,10 @@
+---
+applications:
+  - name: java41
+    memory: 512M
+    buildpack: sap_java_buildpack
+    path: target/java41-0.0.1-SNAPSHOT.war  
+    services:
+    - java-hdi-container
+    env:
+      destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "", password: ""}]'

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:DataServices>
+		<Schema Namespace="ZHELLO_WORLD_MTA.tinyhdb::SampleService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<EntityType Name="Customer">
+				<Key>
+					<PropertyRef Name="CustomerID" />
+					<PropertyRef Name="Type" />
+				</Key>
+				<Property Name="CustomerID" Type="Edm.Int32" />
+				<Property Name="Type" Type="Edm.String" />
+				<Property Name="CustomerName" Type="Edm.String" />
+				<Property Name="Premium" Type="Edm.String" />
+			</EntityType>
+			<EntityType Name="Product">
+				<Key>
+					<PropertyRef Name="ProductID" />
+				</Key>
+				<Property Name="ProductID" Type="Edm.String"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="Description" Type="Edm.String"/>
+                <Property Name="Category" Type="Edm.String"/>	
+			</EntityType>			
+			<EntityContainer Name="container" >
+				<EntitySet Name="Customer" EntityType="ZHELLO_WORLD_MTA.tinyhdb::SampleService.Customer" />
+				<EntitySet Name="Products" EntityType="ZHELLO_WORLD_MTA.tinyhdb::SampleService.Product" />				
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,10 +1,15 @@
 package com.company.zhello_world_mta.tiny_java_odata_v4;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import com.sap.cloud.sdk.service.prov.api.operations.Query;
 import com.sap.cloud.sdk.service.prov.api.operations.Read;
+import com.sap.cloud.sdk.service.prov.api.request.QueryRequest;
 import com.sap.cloud.sdk.service.prov.api.request.ReadRequest;
+import com.sap.cloud.sdk.service.prov.api.response.QueryResponse;
 import com.sap.cloud.sdk.service.prov.api.response.ReadResponse;
 
 public class ServiceImplementation {
@@ -18,33 +23,29 @@ public class ServiceImplementation {
 		return ReadResponse.setSuccess().setData(map).response();
 	}
 	
-private List<Map<String, Object>> getSampleProducts() {
-		List<Map<String, Object>> products = 
+private List<Map<String, Object>> getSamplePeople() {
+		List<Map<String, Object>> peopleSet = 
                      new ArrayList<Map<String, Object>>();
 
-		Map<String, Object> productEntity1 = new HashMap<String, Object>();
-		productEntity1.put("ProductID", 1);
-		productEntity1.put("Name", "Laptop");
-		productEntity1.put("Description", "Professional Laptop");
-		productEntity1.put("Category", "Computers");
-		products.add(productEntity1);
+		Map<String, Object> peopleEntity1 = new HashMap<String, Object>();
+		peopleEntity1.put("UniqueId", 1);
+		peopleEntity1.put("Name", "Jerry");
+		peopleSet.add(peopleEntity1);
 
-		Map<String, Object> productEntity2 = new HashMap<String, Object>();
-		productEntity2.put("ProductID", 2);
-		productEntity2.put("Name", "Monitor");
-		productEntity2.put("Description", "24-inch Desktop Monitor");
-		productEntity1.put("Category", "Display Monitors");
-		products.add(productEntity2);
+		Map<String, Object> peopleEntity2 = new HashMap<String, Object>();
+		peopleEntity2.put("UniqueId", 2);
+		peopleEntity2.put("Name", "Jack");
+		peopleSet.add(peopleEntity2);
 
-		return products;
+		return peopleSet;
 	}
 
 
-	@Query(serviceName = "SampleService", entity = "Products")
-	public QueryResponse getAllProducts(QueryRequest queryRequest) {
+	@Query(serviceName = "DemoService", entity = "People")
+	public QueryResponse getAllPeople(QueryRequest queryRequest) {
 
 
-	    List<Map<String, Object>> sampleData = this.getSampleProducts();
+	    List<Map<String, Object>> sampleData = this.getSamplePeople();
 	    return QueryResponse.setSuccess() //indicates that the operation succeeded
 				    .setData(sampleData)//set the response data
 				    .response(); // returns the response 

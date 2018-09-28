@@ -18,28 +18,27 @@ modules:
       disk-quota: 256M
       memory: 96M
    requires:
-   - name: tiny_java_odata_v4_api
+   - name: java41_api
      group: destinations
      properties:
-      name: tiny_java_odata_v4_be
+      name: java41_be
       url: ~{url}
       forwardAuthToken: true
  
- - name: tiny_java_odata_v4
+ - name: java41
    type: java
-   path: tiny_java_odata_v4
+   path: java41
    parameters:
-      memory: 256M
+      memory: 512M
+   provides:
+    - name: java41_api
+      properties:
+         url: ${default-url}
    requires:
     - name: hdi_tinyhdb
       properties:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
-            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]' 
-   provides:
-    - name: tiny_java_odata_v4_api
-      properties:
-         url: "${default-url}"           
-        
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
 
 resources:
  - name: hdi_tinyhdb
